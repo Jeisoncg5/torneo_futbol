@@ -1,1 +1,23 @@
-[]
+[
+    {
+        "id": 2,
+        "nombre": "nacional",
+        "fundacion": "12/01/2005",
+        "pais": "colombia",
+        "ligaId": 1
+    },
+    {
+        "id": 3,
+        "nombre": "napoli",
+        "fundacion": "10/05/2007",
+        "pais": "italia",
+        "ligaId": 6
+    },
+    {
+        "id": 4,
+        "nombre": "",
+        "fundacion": "",
+        "pais": "",
+        "ligaId": 1
+    }
+]

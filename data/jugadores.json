@@ -1,1 +1,23 @@
-[]
+[
+    {
+        "id": 1,
+        "nombre": "jeison",
+        "posicion": "defensa",
+        "dorsal": 1,
+        "equipo_id": 3
+    },
+    {
+        "id": 2,
+        "nombre": "hola",
+        "posicion": "portero",
+        "dorsal": 1,
+        "equipo_id": "3"
+    },
+    {
+        "id": 3,
+        "nombre": "",
+        "posicion": "portro",
+        "dorsal": 1,
+        "equipo_id": "2"
+    }
+]

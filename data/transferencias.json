@@ -1,0 +1,26 @@
+[
+    {
+        "id_jugador": 1,
+        "nombre_jugador": "jeison",
+        "equipo_origen": "Desconocido",
+        "equipo_destino": "napoli",
+        "tipo": "Venta",
+        "fecha": "26/07/2025"
+    },
+    {
+        "id_jugador": 1,
+        "nombre_jugador": "jeison",
+        "equipo_origen": "Desconocido",
+        "equipo_destino": "napoli",
+        "tipo": "Venta",
+        "fecha": "26/07/2025"
+    },
+    {
+        "id_jugador": 1,
+        "nombre_jugador": "jeison",
+        "equipo_origen": "napoli",
+        "equipo_destino": "nacional",
+        "tipo": 2,
+        "fecha": "26/07/2025"
+    }
+]

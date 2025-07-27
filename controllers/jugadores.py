@@ -1,12 +1,10 @@
 import utils.validateData as vD
 import utils.screenControllers as sc 
-from utils.corefiles import leerjson, escribirjson
+from utils.corefiles import readJson, writeJson
+from app.config import JEIEQUIPOS, JEIJUGADORES
 
 
-JEIJUGADORES = "data/jugadores.json"
-JEIEQUIPOS = "data/equipos.json"
-
-def registrarJugador():
+def registrarJugador():                                      #Funcion para
     sc.limpiarPantalla()
     print("         Registro de Jugador  ")
 
@@ -14,7 +12,7 @@ def registrarJugador():
     posicion = vD.validatetext("Posición (Portero, Defensa, Delantero): ")
     dorsal = vD.validateInt("Número dorsal: ")
 
-    equipos = leerjson(JEIEQUIPOS)
+    equipos = readJson(JEIEQUIPOS)
     if not equipos:
         print("No hay equipos registrados")
         return
@@ -29,9 +27,9 @@ def registrarJugador():
         print("ID de equipo No existe")
         return
 
-    jugadores = leerjson(JEIJUGADORES)
+    jugadores = readJson(JEIJUGADORES)
     nuevo_jugador = {
-        "id": idJugador(),
+        "id": id_jugador(),
         "nombre": nombre,
         "posicion": posicion,
         "dorsal": dorsal,
@@ -39,26 +37,36 @@ def registrarJugador():
     }
 
     jugadores.append(nuevo_jugador)
-    escribirjson(JEIJUGADORES, jugadores)
+    writeJson(JEIJUGADORES, jugadores)
     print("Jugador registrado")
 
-def listaJugadores():
-    sc.limpiarPantalla()
-    print("            Lista de Jugadores ")
-
-    jugadores = leerjson(JEIJUGADORES)
-    equipos = leerjson(JEIEQUIPOS)
-
-    if not jugadores:
-        print("No hay jugadores registrados")
-        return
-
-    for jugador in jugadores:
-        equipo = next((e["nombre"] for e in equipos if e["id"] == jugador["equipo_id"]), "Sin equipo")
-        print(f"- ID: {jugador['id']}, Nombre: {jugador['nombre']}, Posición: {jugador['posicion']}, Dorsal: {jugador['dorsal']}, Equipo: {equipo}")
-
-def idJugador():
-    jugadores = leerjson(JEIJUGADORES)
+def id_jugador():
+    jugadores = readJson(JEIJUGADORES)
     if not jugadores:
         return 1
     return max(j["id"] for j in jugadores) + 1
+
+
+def listaJugadores():
+    sc.limpiarPantalla()
+    print("       Lista de Jugadores ")
+
+    jugadores = readJson(JEIJUGADORES)
+    equipos = readJson(JEIEQUIPOS)
+
+    if not jugadores:
+        print(" No hay jugadores registrados.")
+        return
+
+    for jugador in jugadores:
+        equipo_id = jugador.get("equipo_id")
+
+        equipo_nombre = "Sin equipo"
+        for e in equipos:
+            if str(e["id"]) == str(equipo_id):  
+                equipo_nombre = e["nombre"]    
+                break
+
+        print(f"- ID: {jugador['id']}, Nombre: {jugador['nombre']}, Posición: {jugador['posicion']}, Dorsal: {jugador['dorsal']}, Equipo: {equipo_nombre}")
+
+    input("Presione para continuar...")
