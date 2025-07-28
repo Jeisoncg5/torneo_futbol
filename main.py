@@ -1,6 +1,6 @@
 #import os
 import utils.screenControllers as sc
-from controllers import equipos, jugadores, torneos, tranferencias
+from controllers import equipos, jugadores, torneos, tranferencias, estadisticas
 
 
  
@@ -28,11 +28,31 @@ def menuTorneos():                                      #Menu de Gestion de Torn
             case "4":
                 jugadores.listaJugadores()             #funcion desde controllers para poder ver la lista de los jugadores
             case "5":
-                torneos.registrarPartido()             #Funcion para registrar goles a los diferentes equipos como ejercicio de ligabetplay  (pj, pg, pe, pp, gf, gc, pts)
+                while True:
+                    sc.limpiarPantalla()
+                    print("       ADMINISTRACIÓN DE TORNEOS ")
+                    print("1. Registrar partido")
+                    print("2. Ver tabla de posiciones")
+                    print("0. Volver al menú principal")
+
+                    subOpcion = input("Seleccione una opción: ")
+
+                    match subOpcion:
+                        case "1":
+                            torneos.registrarPartido()   #Funcion para registrar goles a los diferentes equipos como ejercicio de ligabetplay  (pj, pg, pe, pp, gf, gc, pts)
+                        case "2":
+                            torneos.tablaPosiciones()  # Función para ver la tabla de estadisticas de torneo con tabulate
+                        case "0":
+                            break
+                        case _:
+                            print("Opcion invalida.")        
+                        
+                    input("Presione para continuar. . . . ")    
+            
             case "6":
                 tranferencias.hacerTransferencias()    #Funcion para realizar las transferencias entre jugadores ya se por venta o por pretamo
             case "7":
-                pass
+                estadisticas.mostrarEstadisticas()     #Funcion para mostrar las estadisticas generales
             case "0":
                 print("Saliendo del programa")
                 break

@@ -1,10 +1,11 @@
+import utils.screenControllers as sc
 from utils.corefiles import readJson, writeJson
-from utils.screenControllers import limpiarPantalla
 from utils.validateData import validateInt
 from app.config import JTORNEOS, JEIEQUIPOS
+import tabulate 
 
-def registrarPartido():
-    limpiarPantalla()
+def registrarPartido():                                          #Funcion para poder administrar torneos y poner golees a cada equipo
+    sc.limpiarPantalla()
     print("         Registrar Partido ")
 
     equipos = readJson(JEIEQUIPOS)
@@ -33,15 +34,14 @@ def registrarPartido():
     golesLocal = validateInt(f"Goles de {equipoLocal['nombre']}: ")
     golesVisitante = validateInt(f"Goles de {equipoVisitante['nombre']}: ")
 
-    # Cargar estadísticas actuales
     tabla = readJson(JTORNEOS)
-    tabla = actualizarEstadisticas(tabla, equipoLocal['nombre'], golesLocal, golesVisitante)
+    tabla = actualizarEstadisticas(tabla, equipoLocal['nombre'], golesLocal, golesVisitante)           #actualixa las estadisticas 
     tabla = actualizarEstadisticas(tabla, equipoVisitante['nombre'], golesVisitante, golesLocal)
 
     writeJson(JTORNEOS, tabla)
     print("Partido registrado y estadísticas actualizadas.")
 
-def actualizarEstadisticas(tabla, nombre_equipo, gf, gc):
+def actualizarEstadisticas(tabla, nombre_equipo, gf, gc):                         #funcion para actualziar estadisticas a cada equipo
     entry = next((e for e in tabla if e["equipo"] == nombre_equipo), None)
 
     if not entry:
@@ -66,3 +66,7 @@ def actualizarEstadisticas(tabla, nombre_equipo, gf, gc):
         entry["pp"] += 1
 
     return tabla
+
+def tablaPosiciones():
+    sc.limpiarPantalla()
+    print("Proximamente Nueva Funcionalidad  (Fase Beta)")

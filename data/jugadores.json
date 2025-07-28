@@ -2,22 +2,22 @@
     {
         "id": 1,
         "nombre": "jeison",
-        "posicion": "defensa",
+        "posicion": "portero",
         "dorsal": 1,
-        "equipo_id": 3
+        "equipo_id": 2
     },
     {
         "id": 2,
-        "nombre": "hola",
-        "posicion": "portero",
-        "dorsal": 1,
-        "equipo_id": "3"
+        "nombre": "estiven",
+        "posicion": "delantero",
+        "dorsal": 10,
+        "equipo_id": "2"
     },
     {
         "id": 3,
-        "nombre": "",
-        "posicion": "portro",
-        "dorsal": 1,
+        "nombre": "juan",
+        "posicion": "defensa",
+        "dorsal": 23,
         "equipo_id": "2"
     }
 ]

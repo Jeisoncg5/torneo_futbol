@@ -4,7 +4,7 @@ from utils.corefiles import readJson, writeJson
 from app.config import JEIEQUIPOS, JEIJUGADORES
 
 
-def registrarJugador():                                      #Funcion para
+def registrarJugador():                                      #Funcion para registar jugadores y almacenarlos en JEIJUGADORES
     sc.limpiarPantalla()
     print("         Registro de Jugador  ")
 
@@ -40,14 +40,14 @@ def registrarJugador():                                      #Funcion para
     writeJson(JEIJUGADORES, jugadores)
     print("Jugador registrado")
 
-def id_jugador():
+def id_jugador():                                             #funcion para crear una ID a cada jugador que se cree
     jugadores = readJson(JEIJUGADORES)
     if not jugadores:
         return 1
     return max(j["id"] for j in jugadores) + 1
 
 
-def listaJugadores():
+def listaJugadores():                                          #Funcion para mostrar el listado de los jugadores
     sc.limpiarPantalla()
     print("       Lista de Jugadores ")
 
@@ -68,5 +68,3 @@ def listaJugadores():
                 break
 
         print(f"- ID: {jugador['id']}, Nombre: {jugador['nombre']}, Posición: {jugador['posicion']}, Dorsal: {jugador['dorsal']}, Equipo: {equipo_nombre}")
-
-    input("Presione para continuar...")

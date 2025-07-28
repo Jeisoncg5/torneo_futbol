@@ -21,8 +21,8 @@ def registrarEquipo():                                 #funcion para registrar e
         "ligaId": ligaId
     }
 
-    equipos = readJson(JEIEQUIPOS)
-    equipos.append(nuevo_equipo)
+    equipos = readJson(JEIEQUIPOS)                    #Lee las cosas guardadas en el Json de JEIEQUIPOS
+    equipos.append(nuevo_equipo)                      #Mete a una lista nuevo_equipo
     writeJson(JEIEQUIPOS, equipos)                   #Guardar equipos en el Json
 
     print("Equipo registrado correctamente.")

@@ -1,10 +1,10 @@
 import utils.screenControllers as sc
 from utils.corefiles import readJson, writeJson
-from utils.validateData import validateInt, validatetext
+from utils.validateData import validateInt
 from app.config import JTRANSFERENCIAS, JEIJUGADORES, JEIEQUIPOS
 from datetime import datetime
 
-def hacerTransferencias():
+def hacerTransferencias():                                 #funcion para hacer transferencias de jugadores
     sc.limpiarPantalla()
     print("   Transferencia de Jugador ")
 
